@@ -23,7 +23,7 @@ router.delete('/delete-user',usercontroller.deleteUser)
 router.get('/export-users', usercontroller.exportUsersToExcel);
 
  router.post('/add-category',upload,categorycontroller.addCategory)
-// router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
+ router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
  router.get('/get-category',categorycontroller.CategoryList)
 // router.get('/get-categorybyId',categorycontroller.getMenuItemsByCategoryId)
 // router.get('/subcategory-list',categorycontroller.subcategoryList)
