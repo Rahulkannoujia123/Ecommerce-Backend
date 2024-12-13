@@ -6,7 +6,7 @@ const { upload } = require('../middleware/imageupload');
 const productcontroller=require('../controller/productcontroller')
 // const companyController=require('../controller/companycontroller')
 // const itemController=require('../controller/itemcontroller')
-// const cartController=require('../controller/cartcontroller')
+ const cartController=require('../controller/cartcontroller')
 // const bannerController=require('../controller/bannercontroller')
 // const orderController=require('../controller/ordercontroller')
 // const feedbackController=require('../controller/feedbackcontroller')
@@ -32,6 +32,7 @@ router.get('/export-users', usercontroller.exportUsersToExcel);
  router.get('/get-product',productcontroller.getProducts)
 
  router.get('/get-categorybyId',productcontroller.getProductsByCategory)
+ router.post('/add-to-cart',cartController.addToCart)
 // router.get('/subcategory-list',categorycontroller.subcategoryList)
 
 
