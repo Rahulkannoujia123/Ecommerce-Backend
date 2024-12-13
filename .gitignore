@@ -1,0 +1,11 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .env file
+.env
+
+# Ignore Vercel configuration
+.vercel/
+
+# Ignore credentials file
+credentials.json
