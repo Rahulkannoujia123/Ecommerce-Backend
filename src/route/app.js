@@ -30,7 +30,8 @@ router.get('/export-users', usercontroller.exportUsersToExcel);
 
  router.post('/add-product',upload,productcontroller.addProduct)
  router.get('/get-product',productcontroller.getProducts)
-// router.get('/get-categorybyId',categorycontroller.getMenuItemsByCategoryId)
+
+ router.get('/get-categorybyId',productcontroller.getProductsByCategory)
 // router.get('/subcategory-list',categorycontroller.subcategoryList)
 
 

@@ -154,3 +154,26 @@ exports.getProductById = async (req, res) => {
         res.status(500).json({ message: 'An error occurred while fetching the product.' });
     }
 };
+// Get Products by Category
+exports.getProductsByCategory = async (req, res) => {
+    try {
+        const { categoryId } = req.query; // Category ID passed as a URL parameter
+
+        // Fetch products with the given categoryId
+        const products = await Product.find({ categoryId })
+            .populate('categoryId')  // Populate category details if needed
+            .populate('subcategoryId'); // Populate subcategory details if needed
+
+        if (products.length === 0) {
+            return res.status(404).json({ message: 'No products found in this category' });
+        }
+
+        res.status(200).json({
+            message: 'Products retrieved successfully',
+            products,
+        });
+    } catch (error) {
+        console.error('Error while fetching products by category:', error);
+        res.status(500).json({ message: 'An error occurred while fetching products by category.' });
+    }
+};
