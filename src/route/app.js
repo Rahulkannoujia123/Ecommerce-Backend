@@ -3,6 +3,7 @@ const router = express.Router();
 const usercontroller=require('../controller/usercontroller')
  const categorycontroller=require('../controller/categorycontroller')
 const { upload } = require('../middleware/imageupload');
+const productcontroller=require('../controller/productcontroller')
 // const companyController=require('../controller/companycontroller')
 // const itemController=require('../controller/itemcontroller')
 // const cartController=require('../controller/cartcontroller')
@@ -25,6 +26,10 @@ router.get('/export-users', usercontroller.exportUsersToExcel);
  router.post('/add-category',upload,categorycontroller.addCategory)
  router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
  router.get('/get-category',categorycontroller.CategoryList)
+
+
+ router.post('/add-product',upload,productcontroller.addProduct)
+ router.get('/get-product',productcontroller.getProducts)
 // router.get('/get-categorybyId',categorycontroller.getMenuItemsByCategoryId)
 // router.get('/subcategory-list',categorycontroller.subcategoryList)
 
