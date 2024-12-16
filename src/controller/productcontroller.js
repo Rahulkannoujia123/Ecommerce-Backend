@@ -122,7 +122,7 @@ exports.deleteProduct = async (req, res) => {
 };
 exports.getProducts = async (req, res) => {
     try {
-        const products = await Product.find().populate('categoryId').populate('subcategoryId');
+        const products = await Product.find().populate('categoryId')
 
         res.status(200).json({
             message: 'Products retrieved successfully',
