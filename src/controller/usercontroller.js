@@ -73,21 +73,14 @@ exports.getAllUsers = async (req, res) => {
         // Fetch all users
         const users = await User.find();
 
-        // Map through users to get company names
-        const usersWithCompanyNames = await Promise.all(users.map(async (user) => {
-            const company = await Company.findById(user.companyId); // Fetch company details
-            return {
-                ...user.toObject(), // Convert Mongoose document to plain object
-                companyName: company ? company.name : null // Include company name
-            };
-        }));
-
+        // Return the response with the users
         res.status(200).json({
             message: 'Users fetched successfully',
-            users: usersWithCompanyNames
+            users: users
         });
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching users', error });
+        // Handle errors and send a response
+        res.status(500).json({ message: 'Error fetching users', error: error.message });
     }
 };
 // Delete User API
