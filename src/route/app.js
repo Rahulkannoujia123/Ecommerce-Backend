@@ -22,6 +22,7 @@ router.post('/login',usercontroller.loginUser)
 router.get('/user-list',usercontroller.getAllUsers)
 router.delete('/delete-user',usercontroller.deleteUser)
 router.get('/export-users', usercontroller.exportUsersToExcel);
+router.post('/update-user',usercontroller.updateUser)
 
  router.post('/add-category',upload,categorycontroller.addCategory)
  router.post('/add-subcategory', upload,categorycontroller.addSubcategory)

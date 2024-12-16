@@ -148,3 +148,32 @@ exports.exportUsersToExcel = async (req, res) => {
         res.status(500).json({ message: 'Error exporting users', error });
     }
 };
+exports.updateUser = async (req, res) => {
+    try {
+      const { userId } = req.query; // Get the user ID from the route parameter
+      const { fullName, email, phoneNumber, password } = req.body; // Get the updated user data from the request body
+  
+      // Check if the user exists in the database
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      // Update the user data
+      user.fullName = fullName || user.fullName;
+      user.email = email || user.email;
+      user.phoneNumber = phoneNumber || user.phoneNumber;
+      user.password = password || user.password; // You may want to hash the password before saving
+  
+      // Save the updated user
+      await user.save();
+  
+      return res.status(200).json({
+        message: 'User updated successfully',
+        user,
+      });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+  };
