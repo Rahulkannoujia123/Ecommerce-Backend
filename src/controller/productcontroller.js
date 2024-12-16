@@ -7,7 +7,7 @@ const Product = require('../model/product.model'); // Assuming Product model is 
 // Add Product
 exports.addProduct = async (req, res) => {
     try {
-        const { name, description, price, categoryId, subcategoryId, stock } = req.body;
+        const { name, description, price, categoryId,  stock } = req.body;
         let imageUrl = null;
 
         if (req.files && req.files.image && req.files.image[0]) {
@@ -32,7 +32,6 @@ exports.addProduct = async (req, res) => {
             description,
             price,
             categoryId,
-            subcategoryId,
             stock,
             image: imageUrl,
         });

@@ -21,11 +21,7 @@ const productSchema = new mongoose.Schema({
         ref: 'Category', // Reference to the Category model
         required: true, // Every product must belong to a category
     },
-    subcategoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subcategory', // Reference to the Subcategory model
-        required: false, // Subcategory is optional
-    },
+ 
     image: {
         type: String, // URL of the product image
         required: false, // Image is optional
