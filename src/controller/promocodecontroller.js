@@ -50,7 +50,7 @@ exports.getPromocodeById = async (req, res) => {
 // Update a promocode by ID
 exports.updatePromocode = async (req, res) => {
   try {
-    const updatedPromocode = await Promocode.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedPromocode = await Promocode.findByIdAndUpdate(req.query.id, req.body, { new: true });
     if (!updatedPromocode) {
       return res.status(404).json({ message: 'Promocode not found' });
     }

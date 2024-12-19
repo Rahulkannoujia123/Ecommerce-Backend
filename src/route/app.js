@@ -88,6 +88,7 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 router.post('/add-promocode',promocodecontroller.createPromocode)
 router.get('/get-promocode',promocodecontroller.getAllPromocodes)
 router.delete('/delete-promocode',promocodecontroller.deletePromocode)
+router.post('/update-promocode',promocodecontroller.updatePromocode)
 
 
 module.exports = router;
