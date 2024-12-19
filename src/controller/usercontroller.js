@@ -177,3 +177,32 @@ exports.updateUser = async (req, res) => {
       return res.status(500).json({ message: 'Internal server error' });
     }
   };
+  exports.Userdetail = async (req, res) => {
+    try {
+      // Extract the user ID from the query parameters or URL params
+      const userId =  req.query.userId;
+  
+      if (!userId) {
+        return res.status(400).json({ message: 'User ID is required' });
+      }
+  
+      // Find the user by ID in the database
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      // Return the user details
+      return res.status(200).json({
+        message: 'User details fetched successfully',
+        user: user,
+      });
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+      return res.status(500).json({
+        message: 'Error fetching user details',
+        error: error.message,
+      });
+    }
+  };
