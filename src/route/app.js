@@ -25,6 +25,7 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 
  router.post('/add-product',upload,productcontroller.addProduct)
  router.get('/get-product',productcontroller.getProducts)
+ router.post('/update-product',upload,productcontroller.updateProduct)
 
  router.get('/get-categorybyId',productcontroller.getProductsByCategory)
  router.post('/add-to-cart',cartController.addToCart)

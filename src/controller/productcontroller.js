@@ -51,8 +51,8 @@ exports.addProduct = async (req, res) => {
 // Update Product
 exports.updateProduct = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { name, description, price, category, subcategory, stock } = req.body;
+        const { id } = req.query;
+        const { name, description, price, categoryId,  stock } = req.body;
         let imageUrl = null;
 
         if (req.files && req.files.image && req.files.image[0]) {
@@ -78,8 +78,7 @@ exports.updateProduct = async (req, res) => {
                 name,
                 description,
                 price,
-                category,
-                subcategory,
+                categoryId,
                 stock,
                 ...(imageUrl && { image: imageUrl }),
             },
