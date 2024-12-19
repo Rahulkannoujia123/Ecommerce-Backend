@@ -85,7 +85,7 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 // router.post('/add-extrameal',upload,extramealController.addExtraMeal)
 // router.get('/get-extrameal',extramealController.getExtraMeals)
 
-router.post('/add-promocode',promocodecontroller.createPromocode)
+router.post('/add-promocode',promocodecontroller.addPromocode)
 router.get('/get-promocode',promocodecontroller.getAllPromocodes)
 router.delete('/delete-promocode',promocodecontroller.deletePromocode)
 router.post('/update-promocode',promocodecontroller.updatePromocode)

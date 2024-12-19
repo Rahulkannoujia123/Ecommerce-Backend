@@ -1,30 +1,36 @@
 const Promocode = require('../model/promocode.model'); // Import the model
 
 // Create a new promocode
-exports.createPromocode = async (req, res) => {
+exports.addPromocode = async (req, res) => {
     try {
       const { promoCode, type, value, timespan } = req.body;
+  
+      // Log the timespan to the console (for debugging)
+      console.log('Timespan:', timespan);
   
       // Validate timespan if type is 'timespan'
       if (type === 'timespan' && (!timespan || !timespan.start || !timespan.end)) {
         return res.status(400).json({ message: 'Timespan start and end dates are required.' });
       }
   
-      // Create the promocode document with timespan included when applicable
+      // Create a new Promocode object
       const promocode = new Promocode({
         promoCode,
         type,
         value,
-        timespan: type === 'timespan' ? timespan : undefined, // Include timespan only if type is 'timespan'
+        timespan: timespan || undefined, // Include timespan only if provided
       });
   
-      // Save to the database
+      // Save the promocode to the database
       const savedPromocode = await promocode.save();
+  
+      // Return the saved promocode as the response
       res.status(201).json(savedPromocode);
     } catch (err) {
-      res.status(500).json({ message: 'Error creating promocode', error: err });
+      res.status(500).json({ message: 'Error adding promocode', error: err });
     }
   };
+  
   
 
 // Get all promocodes

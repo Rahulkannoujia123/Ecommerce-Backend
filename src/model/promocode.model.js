@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const promocodeSchema = new mongoose.Schema({
@@ -18,16 +17,13 @@ const promocodeSchema = new mongoose.Schema({
   timespan: {
     start: {
       type: Date,
-      required: function () {
-        return this.type === 'timespan'; // Only required if type is 'timespan'
-      },
+     
+      // Only required if type is 'timespan'
+    
     },
     end: {
       type: Date,
-      required: function () {
-        return this.type === 'timespan'; // Only required if type is 'timespan'
-      },
-    },
+    }
   },
   createdAt: {
     type: Date,
