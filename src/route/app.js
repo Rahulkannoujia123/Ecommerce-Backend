@@ -4,18 +4,9 @@ const usercontroller=require('../controller/usercontroller')
  const categorycontroller=require('../controller/categorycontroller')
 const { upload } = require('../middleware/imageupload');
 const productcontroller=require('../controller/productcontroller')
-// const companyController=require('../controller/companycontroller')
-// const itemController=require('../controller/itemcontroller')
+
  const cartController=require('../controller/cartcontroller')
-// const bannerController=require('../controller/bannercontroller')
-// const orderController=require('../controller/ordercontroller')
-// const feedbackController=require('../controller/feedbackcontroller')
-// const coupanController=require('../controller/coupancontroller')
-// const rewardController=require('../controller/rewardcontroller')
-// const admincontroller=require('../controller/admincontroller')
-// const qrcontroller=require('../controller/qrcontroller')
-// const customizemealController=require('../controller/customizemealcontroller')
-// const extramealController=require('../controller/extramealcontroller')
+
 
 router.post('/register',usercontroller.registerUser);
 router.post('/login',usercontroller.loginUser)
@@ -27,6 +18,7 @@ router.post('/update-user',usercontroller.updateUser)
  router.post('/add-category',upload,categorycontroller.addCategory)
  router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
  router.get('/get-category',categorycontroller.CategoryList)
+ router.post('/update-category',categorycontroller.updateCategory)
 
 
  router.post('/add-product',upload,productcontroller.addProduct)
