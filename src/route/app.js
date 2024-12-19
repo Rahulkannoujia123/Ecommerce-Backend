@@ -19,6 +19,7 @@ router.post('/update-user',usercontroller.updateUser)
  router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
  router.get('/get-category',categorycontroller.CategoryList)
  router.post('/update-category',upload,categorycontroller.updateCategory)
+ router.delete('/delete-category',categorycontroller.deletedCategory)
 
 
  router.post('/add-product',upload,productcontroller.addProduct)
