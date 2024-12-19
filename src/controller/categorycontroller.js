@@ -194,11 +194,7 @@ exports.updateCategory = async (req, res) => {
     }
 
     const { name } = req.body || {}; // Extract name from request body
-    if (!name && (!req.files || !req.files.image)) {
-      return res
-        .status(400)
-        .json({ message: "At least one field (name or image) must be provided" });
-    }
+   
 
     // Log received data for debugging
     console.log("Updating category with ID:", id);

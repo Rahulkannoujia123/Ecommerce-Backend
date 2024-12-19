@@ -18,7 +18,7 @@ router.post('/update-user',usercontroller.updateUser)
  router.post('/add-category',upload,categorycontroller.addCategory)
  router.post('/add-subcategory', upload,categorycontroller.addSubcategory)
  router.get('/get-category',categorycontroller.CategoryList)
- router.post('/update-category',categorycontroller.updateCategory)
+ router.post('/update-category',upload,categorycontroller.updateCategory)
 
 
  router.post('/add-product',upload,productcontroller.addProduct)
