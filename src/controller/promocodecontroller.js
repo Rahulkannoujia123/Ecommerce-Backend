@@ -49,16 +49,30 @@ exports.getPromocodeById = async (req, res) => {
 
 // Update a promocode by ID
 exports.updatePromocode = async (req, res) => {
-  try {
-    const updatedPromocode = await Promocode.findByIdAndUpdate(req.query.id, req.body, { new: true });
-    if (!updatedPromocode) {
-      return res.status(404).json({ message: 'Promocode not found' });
+    try {
+      const { id } = req.query; // Extract the id from the query parameters
+  
+      // Validate if an id is provided
+      if (!id) {
+        return res.status(400).json({ message: 'Promocode ID is required' });
+      }
+  
+      // Find the promocode by id and update it with the provided data in the request body
+      const updatedPromocode = await Promocode.findByIdAndUpdate(id, req.body, { new: true });
+  
+      // If the promocode is not found, return a 404 error
+      if (!updatedPromocode) {
+        return res.status(404).json({ message: 'Promocode not found' });
+      }
+  
+      // Return the updated promocode and a success message
+      res.status(200).json({ message: 'Promocode updated successfully', updatedPromocode });
+  
+    } catch (err) {
+      console.error(err); // Log the error for debugging
+      res.status(500).json({ message: 'Error updating promocode', error: err.message });
     }
-    res.status(200).json(updatedPromocode);
-  } catch (err) {
-    res.status(500).json({ message: 'Error updating promocode', error: err });
-  }
-};
+  };
 
 // Delete a promocode by ID
 exports.deletePromocode = async (req, res) => {
