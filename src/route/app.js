@@ -6,6 +6,7 @@ const { upload } = require('../middleware/imageupload');
 const productcontroller=require('../controller/productcontroller')
 
  const cartController=require('../controller/cartcontroller')
+ const promocodecontroller=require('../controller/promocodecontroller')
 
 
 router.post('/register',usercontroller.registerUser);
@@ -84,7 +85,9 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 // router.post('/add-extrameal',upload,extramealController.addExtraMeal)
 // router.get('/get-extrameal',extramealController.getExtraMeals)
 
-
+router.post('/add-promocode',promocodecontroller.createPromocode)
+router.get('/get-promocode',promocodecontroller.getAllPromocodes)
+router.delete('/delete-promocode',promocodecontroller.deletePromocode)
 
 
 module.exports = router;
