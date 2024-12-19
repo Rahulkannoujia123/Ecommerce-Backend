@@ -86,7 +86,7 @@ exports.updatePromocode = async (req, res) => {
 // Delete a promocode by ID
 exports.deletePromocode = async (req, res) => {
   try {
-    const deletedPromocode = await Promocode.findByIdAndDelete(req.params.id);
+    const deletedPromocode = await Promocode.findByIdAndDelete(req.query.id);
     if (!deletedPromocode) {
       return res.status(404).json({ message: 'Promocode not found' });
     }
