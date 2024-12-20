@@ -7,6 +7,7 @@ const productcontroller=require('../controller/productcontroller')
 
  const cartController=require('../controller/cartcontroller')
  const promocodecontroller=require('../controller/promocodecontroller')
+ const bannerController=require('../controller/bannercontroller')
 
 
 router.post('/register',usercontroller.registerUser);
@@ -46,8 +47,8 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 // router.get('/my-cart',cartController.getCartByUserId)
 
 
-// router.post('/add-banner', upload,bannerController.addBanner)
-// router.get('/get-banner',bannerController.bannerList)
+ router.post('/add-banner', upload,bannerController.addBanner)
+ router.get('/get-banner',bannerController.bannerList)
 
 // router.post('/order-place',orderController.createOrder)
 // router.get('/order-list',orderController.orderList)
