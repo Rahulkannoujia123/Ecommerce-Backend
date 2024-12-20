@@ -114,7 +114,7 @@ exports.updateBanner = async (req, res) => {
 };
 exports.deleteBanner = async (req, res) => {
     try {
-        const { id } = req.params; // Extract banner ID from the URL parameter
+        const { id } = req.query; // Extract banner ID from the URL parameter
 
         // Check if the banner exists
         const banner = await Banner.findById(id);
