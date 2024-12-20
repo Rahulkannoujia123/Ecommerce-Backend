@@ -27,26 +27,22 @@ exports.addBanner = async (req, res) => {
         });
       }
   
-      // Find and update the existing banner
-      const updatedBanner = await Banner.findOneAndUpdate(
-        {}, // Finds the first document (adjust the query to target a specific document if needed)
-        { name, ...(imageUrl && { image: imageUrl }) }, // Update the name and image (if uploaded)
-        { new: true } // Return the modified document but do not create a new one
-      );
+      // Create a new banner document
+      const newBanner = await Banner.create({
+        name,
+        image: imageUrl || null, // Save the image URL if it exists, otherwise save null
+      });
   
-      if (!updatedBanner) {
-        return res.status(404).json({ message: 'No existing banner found to update.' });
-      }
-  
-      res.status(200).json({
-        message: 'Banner updated successfully',
-        banner: updatedBanner, // Return the updated banner object
+      res.status(201).json({
+        message: 'Banner added successfully',
+        banner: newBanner, // Return the newly created banner object
       });
     } catch (error) {
-      console.error('Error while updating banner:', error);
-      res.status(500).json({ message: 'An error occurred while updating the banner.' });
+      console.error('Error while adding banner:', error);
+      res.status(500).json({ message: 'An error occurred while adding the banner.' });
     }
   };
+  
   
   
 exports.bannerList = async (req, res) => {
@@ -55,7 +51,7 @@ exports.bannerList = async (req, res) => {
         const banners = await Banner.find(); // You can add filters or pagination if needed
 
         if (banners.length === 0) {
-            return res.status(404).json({ message: 'No banners found' });
+            return res.status(400).json({ message: 'No banners found' });
         }
 
         // Return the list of banners
