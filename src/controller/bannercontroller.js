@@ -125,7 +125,7 @@ exports.deleteBanner = async (req, res) => {
        
 
         // Delete the banner from the database
-        await banner.remove();
+        await banner.save();
 
         res.status(200).json({
             message: 'Banner deleted successfully',
