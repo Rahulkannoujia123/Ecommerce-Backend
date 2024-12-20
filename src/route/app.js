@@ -46,6 +46,8 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 
  router.post('/add-slider',upload,sliderController.addSlider)
  router.get('/get-slider',sliderController.sliderlist)
+ router.post('/update-slider',upload,sliderController.updateSlider)
+ router.delete('/delete-slider',sliderController.deleteSlider)
 
 
 
