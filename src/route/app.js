@@ -49,6 +49,8 @@ router.get('/get-user-detail',usercontroller.Userdetail)
 
  router.post('/add-banner', upload,bannerController.addBanner)
  router.get('/get-banner',bannerController.bannerList)
+ router.post('/update-banner',upload,bannerController.updateBanner)
+ router.delete('/delete-banner',bannerController.deleteBanner)
 
 // router.post('/order-place',orderController.createOrder)
 // router.get('/order-list',orderController.orderList)
