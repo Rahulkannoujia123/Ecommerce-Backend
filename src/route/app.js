@@ -13,6 +13,7 @@ const productcontroller=require('../controller/productcontroller')
 
 router.post('/register',usercontroller.registerUser);
 router.post('/login',usercontroller.loginUser)
+router.post('/admin-login',usercontroller.adminlogin)
 router.get('/user-list',usercontroller.getAllUsers)
 router.delete('/delete-user',usercontroller.deleteUser)
 router.get('/export-users', usercontroller.exportUsersToExcel);

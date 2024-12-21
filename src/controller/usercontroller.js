@@ -206,3 +206,26 @@ exports.updateUser = async (req, res) => {
       });
     }
   };
+
+  // controllers/authController.js
+
+const DEFAULT_EMAIL = "admin@gmail.com";
+const DEFAULT_PASSWORD = "admin";
+
+// Login controller
+exports.adminlogin = (req, res) => {
+  const { email, password } = req.body;
+
+  // Check if email and password match the default values
+  if (email === DEFAULT_EMAIL && password === DEFAULT_PASSWORD) {
+    return res.status(200).json({
+      message: "Login successful",
+      success: true,
+    });
+  } else {
+    return res.status(401).json({
+      message: "Invalid email or password",
+      success: false,
+    });
+  }
+};
