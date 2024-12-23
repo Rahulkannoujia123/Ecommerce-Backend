@@ -97,3 +97,12 @@ exports.editUser = async (req, res) => {
     }
 };
 
+// Get all users
+exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await Admin.find(); // Fetch all users from the database
+        res.status(200).send({ message: 'Users fetched successfully', users });
+    } catch (error) {
+        res.status(500).send({ error: 'Failed to fetch users', details: error });
+    }
+};
