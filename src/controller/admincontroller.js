@@ -56,7 +56,7 @@ exports.getUsers = async (req, res) => {
 
 // Delete a user by ID
 exports.deleteUser = async (req, res) => {
-    const { userId } = req.params;
+    const { userId } = req.query;
 
     if (!userId) {
         return res.status(400).send({ error: 'User ID is required' });
