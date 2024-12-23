@@ -9,7 +9,9 @@ const productcontroller=require('../controller/productcontroller')
  const promocodecontroller=require('../controller/promocodecontroller')
  const bannerController=require('../controller/bannercontroller')
  const sliderController=require('../controller/slidercontroller')
+ const adminController=require('../controller/admincontroller')
 
+ router.post('/add-user',adminController.addUser)
 
 router.post('/register',usercontroller.registerUser);
 router.post('/login',usercontroller.loginUser)
