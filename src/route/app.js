@@ -13,6 +13,7 @@ const productcontroller=require('../controller/productcontroller')
 
  router.post('/add-user',adminController.addUser)
  router.get('/get-admin-user',adminController.getAllUsers)
+ router.post('/update-user',adminController.editUser)
 
 router.post('/register',usercontroller.registerUser);
 router.post('/login',usercontroller.loginUser)
