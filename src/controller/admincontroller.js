@@ -113,7 +113,7 @@ exports.deleteMultipleUser= async (req, res) => {
         return res.status(400).json({ message: 'Invalid user IDs' });
       }
   
-      await User.deleteMany({ _id: { $in: userIds } }); // Deletes users with the given IDs
+      await Admin.deleteMany({ _id: { $in: userIds } }); // Deletes users with the given IDs
       res.status(200).json({ message: 'Users deleted successfully' });
     } catch (error) {
       console.error(error);
