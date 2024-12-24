@@ -15,6 +15,7 @@ router.post("/add-user", adminController.addUser);
 router.get("/get-admin-user", adminController.getAllUsers);
 router.post("/update-user", adminController.editUser);
 router.delete("/delete-admin-user", adminController.deleteUser);
+router.delete("/delete-multiple-user", adminController.deleteUser);
 
 router.post("/register", usercontroller.registerUser);
 router.post("/login", usercontroller.loginUser);

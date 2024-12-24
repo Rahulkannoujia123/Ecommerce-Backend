@@ -106,3 +106,18 @@ exports.getAllUsers = async (req, res) => {
         res.status(500).send({ error: 'Failed to fetch users', details: error });
     }
 };
+exports.deleteMultipleUser= async (req, res) => {
+    try {
+      const { userIds } = req.body; // Array of user IDs to delete
+      if (!userIds || !Array.isArray(userIds)) {
+        return res.status(400).json({ message: 'Invalid user IDs' });
+      }
+  
+      await User.deleteMany({ _id: { $in: userIds } }); // Deletes users with the given IDs
+      res.status(200).json({ message: 'Users deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to delete users' });
+    }
+  }
+  
