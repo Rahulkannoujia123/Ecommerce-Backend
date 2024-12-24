@@ -103,6 +103,30 @@ exports.deleteUser = async (req, res) => {
         res.status(500).json({ message: 'Error deleting user', error });
     }
 };
+
+exports.deleteMultipleUsers = async (req, res) => {
+    try {
+        const { userIds } = req.body; // Get the user IDs from the request body
+
+        // Check if userIds is an array and not empty
+        if (!Array.isArray(userIds) || userIds.length === 0) {
+            return res.status(400).json({ message: 'User IDs are required' });
+        }
+
+        // Delete multiple users by their IDs
+        await User.deleteMany({ _id: { $in: userIds } });
+
+        res.status(200).json({
+            message: 'Users deleted successfully',
+            
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Error deleting users', error });
+    }
+};
+
+
+
 exports.exportUsersToExcel = async (req, res) => {
     try {
         // Fetch all users
