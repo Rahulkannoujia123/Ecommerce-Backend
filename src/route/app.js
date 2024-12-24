@@ -25,6 +25,7 @@ router.delete("/delete-user", usercontroller.deleteUser);
 router.get("/export-users", usercontroller.exportUsersToExcel);
 router.post("/update-user", usercontroller.updateUser);
 router.get("/get-user-detail", usercontroller.Userdetail);
+router.delete("/delete-multiple-user", usercontroller.deleteMultipleUser);
 
 router.post("/add-category", upload, categorycontroller.addCategory);
 router.post("/add-subcategory", upload, categorycontroller.addSubcategory);
