@@ -31,6 +31,7 @@ router.post("/add-subcategory", upload, categorycontroller.addSubcategory);
 router.get("/get-category", categorycontroller.CategoryList);
 router.post("/update-category", upload, categorycontroller.updateCategory);
 router.delete("/delete-category", categorycontroller.deletedCategory);
+router.delete("/delete-multiple-category", categorycontroller.deletedMultipleCategory);
 
 router.post("/add-product", upload, productcontroller.addProduct);
 router.get("/get-product", productcontroller.getProducts);
