@@ -37,6 +37,7 @@ router.post("/add-product", upload, productcontroller.addProduct);
 router.get("/get-product", productcontroller.getProducts);
 router.post("/update-product", upload, productcontroller.updateProduct);
 router.delete("/delete-product", productcontroller.deleteProduct);
+router.delete("/delete-multiple-product", productcontroller.deleteMultipleProduct);
 
 router.get("/get-categorybyId", productcontroller.getProductsByCategory);
 router.post("/add-to-cart", cartController.addToCart);
