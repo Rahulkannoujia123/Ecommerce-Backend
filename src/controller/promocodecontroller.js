@@ -95,3 +95,17 @@ exports.deletePromocode = async (req, res) => {
     res.status(500).json({ message: 'Error deleting promocode', error: err });
   }
 };
+exports.deleteMultiplePromocode= async (req, res) => {
+    try {
+      const { ids } = req.body; // Array of user IDs to delete
+      if (!ids || !Array.isArray(ids)) {
+        return res.status(400).json({ message: 'Invalid user IDs' });
+      }
+  
+      await Promocode.deleteMany({ _id: { $in: ids } }); // Deletes users with the given IDs
+      res.status(200).json({ message: 'Promocode deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to delete users' });
+    }
+  }

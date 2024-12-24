@@ -54,5 +54,6 @@ router.post("/add-promocode", promocodecontroller.addPromocode);
 router.get("/get-promocode", promocodecontroller.getAllPromocodes);
 router.delete("/delete-promocode", promocodecontroller.deletePromocode);
 router.post("/update-promocode", promocodecontroller.updatePromocode);
+router.delete("/delete-multiple-promocode", promocodecontroller.deleteMultiplePromocode);
 
 module.exports = router;
